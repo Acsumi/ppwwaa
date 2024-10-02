@@ -2,6 +2,7 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
+import logo from '../assets/musho.jpg'; // Asegúrate de que la ruta sea correcta
 
 const Login = () => {
   const { register, handleSubmit, formState: { errors } } = useForm();
@@ -9,7 +10,6 @@ const Login = () => {
 
   const onSubmit = data => {
     // Simular una llamada a una API de autenticación
-    // Aquí puedes reemplazar esto con una llamada real a tu backend
     console.log(data);
     const { email, password } = data;
 
@@ -19,15 +19,16 @@ const Login = () => {
       localStorage.setItem('isAuthenticated', 'true');
       // Redirigir al usuario a la página protegida
       navigate('/dashboard');
-
     } else {
       alert('Credenciales inválidas. Por favor, intenta de nuevo.');
-      
     }
   };
 
   return (
     <div style={styles.container}>
+      {/* Agregar la imagen */}
+      <img src={logo} alt="Logo" style={styles.logo} />
+
       <h2>Iniciar Sesión</h2>
       <form onSubmit={handleSubmit(onSubmit)} style={styles.form}>
         <div style={styles.inputGroup}>
@@ -75,14 +76,22 @@ const styles = {
     border: '1px solid #ccc',
     borderRadius: '8px',
     marginTop: '5rem',
-    boxShadow: '0 2px 8px rgba(0,0,0,0.1)'
+    boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
+    textAlign: 'center',
+    backgroundColor: '#f9f9f9'
+  },
+  logo: {
+    width: '100px',
+    marginBottom: '1.5rem'
   },
   form: {
     display: 'flex',
-    flexDirection: 'column'
+    flexDirection: 'column',
+    alignItems: 'stretch'
   },
   inputGroup: {
-    marginBottom: '1rem'
+    marginBottom: '1rem',
+    textAlign: 'left'
   },
   error: {
     color: 'red',
@@ -94,7 +103,8 @@ const styles = {
     color: '#fff',
     border: 'none',
     borderRadius: '4px',
-    cursor: 'pointer'
+    cursor: 'pointer',
+    fontSize: '1rem'
   }
 };
 
