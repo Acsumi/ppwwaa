@@ -19,8 +19,10 @@ const Login = () => {
       localStorage.setItem('isAuthenticated', 'true');
       // Redirigir al usuario a la página protegida
       navigate('/dashboard');
+
     } else {
       alert('Credenciales inválidas. Por favor, intenta de nuevo.');
+      
     }
   };
 
