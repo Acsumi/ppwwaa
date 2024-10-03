@@ -1,4 +1,3 @@
-// public/sw.js
 
 const CACHE_NAME = 'appShell8';
 const DYNAMIC_CACHE = 'dinamico-v1';
